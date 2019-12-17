@@ -1,11 +1,18 @@
 <template>
-  <h1>Video List</h1>
+  <div>
+    <ul>
+      <VideoListItem v-for="video in videos" :key="video.etag" :video="video" />
+    </ul>
+  </div>
 </template>
 <script>
+import VideoListItem from "./VideoListItem";
 export default {
-  name: 'VideoList'
-}
+  name: "VideoList",
+  props: ["videos"],
+  components: {
+    VideoListItem
+  }
+};
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

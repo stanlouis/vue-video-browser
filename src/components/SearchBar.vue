@@ -8,8 +8,8 @@ export default {
   name: "SearchBar",
 
   methods: {
-    onInput: function(e) {
-      this.$emit('termChange', e.target.value)
+    onInput(e) {
+      this.$emit("termChange", e.target.value);
     }
   }
 };

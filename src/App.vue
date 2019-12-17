@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchBar @termChange="onTermChange"></SearchBar>
-    <VideoList />
+    <VideoList :videos="videos" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   name: "App",
   data() {
     return {
-      term: ""
+      videos: []
     };
   },
   components: {
@@ -33,7 +33,7 @@ export default {
           }
         })
         .then(response => {
-          console.log(response.data);
+          this.videos = response.data.items;
         });
     }
   }
