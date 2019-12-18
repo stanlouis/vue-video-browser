@@ -1,25 +1,31 @@
 <template>
   <div class="container">
     <SearchBar @termChange="onTermChange"></SearchBar>
-    <VideoList @videoSelect="onVideoSelect" :videos="videos" />
+    <div class="row">
+      <VideoDetail :video="selectedVideo" />
+      <VideoList @videoSelect="onVideoSelect" :videos="videos" />
+    </div>
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetail from "./components/VideoDetail";
 const API_KEY = process.env.VUE_APP_API_KEY;
 import axios from "axios";
 export default {
   name: "App",
   data() {
     return {
-      videos: []
+      videos: [],
+      selectedVideo: null
     };
   },
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetail
   },
   methods: {
     onTermChange(searchTerm) {
@@ -37,7 +43,7 @@ export default {
         });
     },
     onVideoSelect(video) {
-      console.log(video);
+      this.selectedVideo = video;
     }
   }
 };
