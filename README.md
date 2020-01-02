@@ -1,5 +1,8 @@
 # video-browser
 
+
+A youtube video search app using vue.js to fetch video from the youtube API.
+
 ## Project setup
 ```
 npm install
